@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ============================================
-# GEMBOK LARA - Native Installation Script
-# For Ubuntu 22.04/24.04 with Nginx + MySQL
+# MyShezanet - Native Installation Script
+# For Ubuntu 24.04 with Nginx + MySQL
 # ============================================
 
 set -e
@@ -15,17 +15,17 @@ NC='\033[0m'
 
 echo -e "${GREEN}"
 echo "============================================"
-echo "  GEMBOK LARA - Native Installation"
-echo "  Nginx + PHP 8.2 + MySQL 8"
+echo "  MyShezanet - Native Installation"
+echo "  Nginx + PHP 8.3 + MySQL 8"
 echo "============================================"
 echo -e "${NC}"
 
 # Configuration
-APP_NAME="gembok-lara"
+APP_NAME="myshezanet"
 APP_DIR="/var/www/${APP_NAME}"
-DB_NAME="gemboklara"
-DB_USER="gembok"
-DB_PASS="gembok123"
+DB_NAME="myshezanet"
+DB_USER="myshezanet"
+DB_PASS="${DB_PASS:-$(openssl rand -base64 24 | tr -d '=+/' | cut -c1-24)}"
 DOMAIN="localhost"
 
 # Check if running as root
@@ -38,14 +38,12 @@ echo -e "${YELLOW}[1/8] Updating system...${NC}"
 apt update && apt upgrade -y
 
 echo -e "${YELLOW}[2/8] Installing dependencies...${NC}"
-apt install -y software-properties-common curl git unzip
+apt install -y software-properties-common curl git unzip openssl
 
-echo -e "${YELLOW}[3/8] Installing PHP 8.2...${NC}"
-add-apt-repository -y ppa:ondrej/php
-apt update
-apt install -y php8.2-fpm php8.2-cli php8.2-mysql php8.2-mbstring \
-    php8.2-xml php8.2-curl php8.2-zip php8.2-gd php8.2-bcmath \
-    php8.2-intl php8.2-redis php8.2-snmp php8.2-sockets
+echo -e "${YELLOW}[3/8] Installing PHP 8.3...${NC}"
+apt install -y php8.3-fpm php8.3-cli php8.3-mysql php8.3-mbstring \
+    php8.3-xml php8.3-curl php8.3-zip php8.3-gd php8.3-bcmath \
+    php8.3-intl php8.3-redis php8.3-snmp php8.3-sockets
 
 echo -e "${YELLOW}[4/8] Installing Nginx...${NC}"
 apt install -y nginx
@@ -81,18 +79,18 @@ composer install --no-dev --optimize-autoloader
 
 # Setup environment
 if [ ! -f ".env" ]; then
-    cp .env.example .env
+    cp .env.production.example .env
 fi
 
 # Configure .env
-sed -i "s/APP_ENV=local/APP_ENV=production/" .env
-sed -i "s/APP_DEBUG=true/APP_DEBUG=false/" .env
-sed -i "s/DB_CONNECTION=sqlite/DB_CONNECTION=mysql/" .env
-sed -i "s/# DB_HOST=127.0.0.1/DB_HOST=127.0.0.1/" .env
-sed -i "s/# DB_PORT=3306/DB_PORT=3306/" .env
-sed -i "s/# DB_DATABASE=laravel/DB_DATABASE=${DB_NAME}/" .env
-sed -i "s/# DB_USERNAME=root/DB_USERNAME=${DB_USER}/" .env
-sed -i "s/# DB_PASSWORD=/DB_PASSWORD=${DB_PASS}/" .env
+sed -i "s|^APP_ENV=.*|APP_ENV=production|" .env
+sed -i "s|^APP_DEBUG=.*|APP_DEBUG=false|" .env
+sed -i "s|^DB_CONNECTION=.*|DB_CONNECTION=mysql|" .env
+sed -i "s|^DB_HOST=.*|DB_HOST=127.0.0.1|" .env
+sed -i "s|^DB_PORT=.*|DB_PORT=3306|" .env
+sed -i "s|^DB_DATABASE=.*|DB_DATABASE=${DB_NAME}|" .env
+sed -i "s|^DB_USERNAME=.*|DB_USERNAME=${DB_USER}|" .env
+sed -i "s|^DB_PASSWORD=.*|DB_PASSWORD=${DB_PASS}|" .env
 
 # Generate key and run migrations
 php artisan key:generate --force
@@ -131,7 +129,7 @@ server {
     error_page 404 /index.php;
 
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         include fastcgi_params;
         fastcgi_hide_header X-Powered-By;
@@ -154,7 +152,7 @@ rm -f /etc/nginx/sites-enabled/default
 # Test and restart Nginx
 nginx -t
 systemctl restart nginx
-systemctl restart php8.2-fpm
+systemctl restart php8.3-fpm
 
 # Setup cron for Laravel scheduler
 (crontab -l 2>/dev/null; echo "* * * * * cd ${APP_DIR} && php artisan schedule:run >> /dev/null 2>&1") | crontab -
