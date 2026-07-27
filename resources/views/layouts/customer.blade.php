@@ -8,6 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <meta property="og:image" content="{{ asset('images/myshezanet-screenshot.svg') }}">
+    <meta name="theme-color" content="#050712">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/myshezanet-mark.svg') }}">
 </head>
 <body class="bg-black min-h-screen text-white" x-data="{ sidebarOpen: false }">
     <!-- Mobile Sidebar Overlay -->
@@ -23,9 +27,7 @@
         <!-- Logo -->
         <div class="flex items-center justify-center h-16 border-b border-green-500/20">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-wifi text-white"></i>
-                </div>
+                <img src="{{ asset('images/myshezanet-mark.svg') }}" alt="ShezaNet logo" class="w-10 h-10 rounded-lg">
                 <span class="text-xl font-bold text-white">MyShezanet</span>
             </div>
         </div>

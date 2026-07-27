@@ -6,6 +6,10 @@
     <title>{{ companyName() }} - Internet Service Provider</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:image" content="{{ asset('images/myshezanet-screenshot.svg') }}">
+    <meta name="theme-color" content="#050712">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/myshezanet-mark.svg') }}">
 </head>
 <body class="bg-zinc-900">
     <!-- Navigation -->
@@ -13,10 +17,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-wifi text-white"></i>
-                    </div>
-                    <span class="text-xl font-bold text-white">{{ companyName() }}</span>
+                    <img src="{{ asset('images/myshezanet-mark.svg') }}" alt="ShezaNet logo" class="w-10 h-10 rounded-lg shadow-lg shadow-green-500/20">
+                    <span class="text-xl font-bold text-white tracking-wide">{{ companyName() }}</span>
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#packages" class="text-gray-300 hover:text-green-400 transition">Paket</a>
@@ -41,20 +43,27 @@
             <div class="absolute bottom-20 right-20 w-96 h-96 bg-emerald-600 rounded-full filter blur-3xl"></div>
         </div>
         
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div class="relative z-10 px-4 max-w-7xl mx-auto grid lg:grid-cols-[1fr_560px] gap-10 items-center pt-20">
+            <div class="text-center lg:text-left">
+                <img src="{{ asset('images/myshezanet-logo.svg') }}" alt="ShezaNet Network & Technology" class="mx-auto lg:mx-0 mb-8 w-full max-w-md rounded-3xl border border-green-500/20 shadow-2xl shadow-green-500/10">
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
                 Internet <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">Super Cepat</span>
             </h1>
             <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
                 Nikmati koneksi internet fiber optik dengan kecepatan tinggi dan harga terjangkau untuk rumah dan bisnis Anda
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a href="#packages" class="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-green-600 hover:to-emerald-700 transition shadow-lg shadow-green-500/30">
                     <i class="fas fa-rocket mr-2"></i>Lihat Paket
                 </a>
                 <a href="{{ route('voucher.buy') }}" class="bg-white/10 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 transition border border-white/20">
                     <i class="fas fa-ticket mr-2"></i>Beli Voucher
                 </a>
+            </div>
+            </div>
+            <div class="relative hidden lg:block">
+                <div class="absolute -inset-6 rounded-[2rem] bg-green-500/20 blur-3xl"></div>
+                <img src="{{ asset('images/myshezanet-screenshot.svg') }}" alt="Screenshot aplikasi MyShezanet Customer" class="relative w-full rounded-[2rem] border border-green-500/30 shadow-2xl shadow-green-500/20">
             </div>
         </div>
 
@@ -206,9 +215,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-wifi text-white"></i>
-                        </div>
+                        <img src="{{ asset('images/myshezanet-mark.svg') }}" alt="ShezaNet logo" class="w-10 h-10 rounded-lg">
                         <span class="text-xl font-bold text-white">{{ companyName() }}</span>
                     </div>
                     <p class="text-gray-400 text-sm">Internet Service Provider terpercaya untuk rumah dan bisnis Anda.</p>

@@ -19,6 +19,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     @stack('styles')
+    <meta property="og:image" content="{{ asset('images/myshezanet-screenshot.svg') }}">
+    <meta name="theme-color" content="#050712">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/myshezanet-mark.svg') }}">
 </head>
 <body class="bg-black text-white">
     @yield('content')

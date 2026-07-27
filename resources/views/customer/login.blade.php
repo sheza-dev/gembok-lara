@@ -6,14 +6,16 @@
     <title>Login Customer - {{ companyName() }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:image" content="{{ asset('images/myshezanet-screenshot.svg') }}">
+    <meta name="theme-color" content="#050712">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/myshezanet-mark.svg') }}">
 </head>
 <body class="bg-black min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-md">
         <div class="bg-zinc-950/95 border border-green-500/30 rounded-2xl shadow-2xl shadow-green-500/20 p-8">
             <div class="text-center mb-8">
-                <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-wifi text-white text-3xl"></i>
-                </div>
+                <img src="{{ asset('images/myshezanet-mark.svg') }}" alt="ShezaNet logo" class="w-24 h-24 rounded-3xl mx-auto mb-4 shadow-xl shadow-green-500/20">
                 <h1 class="text-2xl font-bold text-white">MyShezanet Customer</h1>
                 <p class="text-gray-300 mt-1">{{ companyName() }}</p>
             </div>
