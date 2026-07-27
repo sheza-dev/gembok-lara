@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">ShezaNet Network and Technology</title>
+  <desc id="desc">ShezaNet logo with white Sheza text, green Net text, and network signal mark.</desc>
+  <defs>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#69ff20"/><stop offset="1" stop-color="#14b80f"/></linearGradient>
+    <filter id="softGlow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="420" rx="44" fill="#060916"/>
+  <g transform="translate(58 40) scale(.66)">
+    <g fill="none" stroke="url(#green)" stroke-linecap="round" filter="url(#softGlow)">
+      <path d="M95 158c-54 57-54 139 0 196" stroke-width="34"/>
+      <path d="M143 197c-31 35-31 83 0 118" stroke-width="32"/>
+      <path d="M417 158c54 57 54 139 0 196" stroke-width="34"/>
+      <path d="M369 197c31 35 31 83 0 118" stroke-width="32"/>
+    </g>
+    <g transform="rotate(-45 256 256)" fill="none" stroke="#fff" stroke-linecap="square" stroke-linejoin="round">
+      <path d="M210 95h92c44 0 80 36 80 80s-36 80-80 80h-92" stroke-width="52"/>
+      <path d="M302 417h-92c-44 0-80-36-80-80s36-80 80-80h92" stroke-width="52"/>
+      <path d="M192 256h128" stroke="#060916" stroke-width="30" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="410" y="190" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="900" letter-spacing="2"><tspan fill="#fff">SHEZA</tspan><tspan fill="#36f21b">NET</tspan></text>
+  <text x="414" y="275" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="500" letter-spacing="6" fill="#36f21b">NETWORK &amp; TECHNOLOGY</text>
+</svg>
