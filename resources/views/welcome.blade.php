@@ -17,8 +17,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-3">
-                    <img src="{{ asset('images/myshezanet-mark.svg') }}" alt="ShezaNet logo" class="w-10 h-10 rounded-lg shadow-lg shadow-green-500/20">
-                    <span class="text-xl font-bold text-white tracking-wide">{{ companyName() }}</span>
+                    <img src="{{ asset('images/myshezanet-logo.svg') }}" alt="ShezaNet" class="h-9 w-auto">
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#packages" class="text-gray-300 hover:text-green-400 transition">Paket</a>

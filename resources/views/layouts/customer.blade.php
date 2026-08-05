@@ -7,6 +7,7 @@
     <title>@yield('title', 'Dashboard') - MyShezanet Customer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    @include('partials.shezanet-theme')
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <meta property="og:image" content="{{ asset('images/myshezanet-screenshot.svg') }}">
     <meta name="theme-color" content="#050712">
@@ -26,10 +27,7 @@
         class="fixed top-0 left-0 z-50 w-64 h-screen bg-gradient-to-b from-black via-zinc-950 to-green-950 transition-transform lg:translate-x-0">
         <!-- Logo -->
         <div class="flex items-center justify-center h-16 border-b border-green-500/20">
-            <div class="flex items-center space-x-3">
-                <img src="{{ asset('images/myshezanet-mark.svg') }}" alt="ShezaNet logo" class="w-10 h-10 rounded-lg">
-                <span class="text-xl font-bold text-white">MyShezanet</span>
-            </div>
+            <img src="{{ asset('images/myshezanet-logo.svg') }}" alt="ShezaNet" class="h-9 w-auto">
         </div>
 
         <!-- Navigation -->
@@ -86,8 +84,8 @@
                 </button>
                 <div class="flex items-center space-x-4">
                     <span class="text-white">{{ $customer->name ?? 'Customer' }}</span>
-                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                        <i class="fas fa-user text-green-600"></i>
+                    <div class="w-9 h-9 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg,#36f21b,#14b80f);">
+                        <i class="fas fa-user text-xs" style="color:#050b14;"></i>
                     </div>
                 </div>
             </div>
@@ -96,13 +94,13 @@
         <!-- Page Content -->
         <main class="p-4 lg:p-6">
             @if(session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6">
-                    {{ session('success') }}
+                <div class="bg-green-500/10 border border-green-500/30 text-green-300 px-4 py-3 rounded-xl mb-5 text-sm">
+                    <i class="fas fa-check-circle mr-2"></i>{{ session('success') }}
                 </div>
             @endif
             @if(session('error'))
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
-                    {{ session('error') }}
+                <div class="bg-red-500/10 border border-red-500/30 text-red-300 px-4 py-3 rounded-xl mb-5 text-sm">
+                    <i class="fas fa-exclamation-circle mr-2"></i>{{ session('error') }}
                 </div>
             @endif
             @yield('content')
