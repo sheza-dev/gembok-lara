@@ -6,55 +6,60 @@
     <title>Agent Portal - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        body { background: #060916; }
+        .sn-card { background: rgba(12,18,32,0.95); border: 1px solid rgba(54,242,27,0.18); box-shadow: 0 0 40px rgba(54,242,27,0.07), 0 20px 40px rgba(0,0,0,0.5); }
+        .sn-input { background: rgba(255,255,255,0.04); border: 1px solid rgba(54,242,27,0.20); color: #fff; }
+        .sn-input::placeholder { color: #4a5568; }
+        .sn-input:focus { outline: none; border-color: #36f21b; box-shadow: 0 0 0 3px rgba(54,242,27,0.12); }
+        .sn-btn { background: linear-gradient(135deg, #36f21b 0%, #14b80f 100%); color: #050b14; font-weight: 700; }
+        .sn-btn:hover { filter: brightness(1.1); }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-emerald-900 to-slate-900 min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-md">
         <!-- Logo & Title -->
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl shadow-lg mb-4">
-                <i class="fas fa-store text-white text-3xl"></i>
-            </div>
-            <h1 class="text-3xl font-bold text-white">Agent Portal</h1>
-            <p class="text-emerald-300 mt-2">Kelola penjualan voucher Anda</p>
+            <img src="/images/myshezanet-logo.svg" alt="ShezaNet" class="h-12 mx-auto mb-5">
+            <h1 class="text-2xl font-bold text-white">Agent Portal</h1>
+            <p class="text-green-400 mt-1 text-sm">Kelola penjualan voucher Anda</p>
         </div>
 
         <!-- Login Form -->
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-white/20">
+        <div class="sn-card rounded-2xl p-8">
             @if(session('error'))
-                <div class="bg-red-500/20 border border-red-500 text-red-200 px-4 py-3 rounded-lg mb-6">
-                    {{ session('error') }}
+                <div class="bg-red-500/10 border border-red-500/40 text-red-300 px-4 py-3 rounded-lg mb-6 text-sm">
+                    <i class="fas fa-exclamation-circle mr-2"></i>{{ session('error') }}
                 </div>
             @endif
 
             <form action="{{ route('agent.login.post') }}" method="POST">
                 @csrf
-                <div class="mb-6">
-                    <label class="block text-emerald-200 text-sm font-medium mb-2">
-                        <i class="fas fa-user mr-2"></i>Username
+                <div class="mb-5">
+                    <label class="block text-gray-300 text-sm font-medium mb-2">
+                        <i class="fas fa-user mr-2 text-green-500/60"></i>Username
                     </label>
                     <input type="text" name="username" required
-                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                        class="sn-input w-full px-4 py-3 rounded-xl text-sm"
                         placeholder="Masukkan username">
                 </div>
 
-                <div class="mb-6">
-                    <label class="block text-emerald-200 text-sm font-medium mb-2">
-                        <i class="fas fa-lock mr-2"></i>Password
+                <div class="mb-5">
+                    <label class="block text-gray-300 text-sm font-medium mb-2">
+                        <i class="fas fa-lock mr-2 text-green-500/60"></i>Password
                     </label>
                     <input type="password" name="password" required
-                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                        class="sn-input w-full px-4 py-3 rounded-xl text-sm"
                         placeholder="Masukkan password">
                 </div>
 
-                <div class="flex items-center justify-between mb-6">
-                    <label class="flex items-center text-emerald-200 text-sm">
-                        <input type="checkbox" name="remember" class="mr-2 rounded bg-white/10 border-white/20 text-emerald-500 focus:ring-emerald-500">
-                        Ingat saya
-                    </label>
+                <div class="flex items-center mb-6">
+                    <input type="checkbox" name="remember" id="remember" class="rounded text-green-500 focus:ring-green-500">
+                    <label for="remember" class="ml-2 text-sm text-gray-400">Ingat saya</label>
                 </div>
 
-                <button type="submit"
-                    class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-green-700 transition-all duration-300 shadow-lg">
+                <button type="submit" class="sn-btn w-full py-3.5 rounded-xl text-sm shadow-lg shadow-green-900/30 transition hover:brightness-110">
                     <i class="fas fa-sign-in-alt mr-2"></i>Masuk
                 </button>
             </form>
@@ -62,7 +67,7 @@
 
         <!-- Footer -->
         <div class="text-center mt-6">
-            <a href="/" class="text-gray-400 hover:text-gray-300 text-sm">
+            <a href="/" class="text-gray-500 hover:text-green-400 text-sm transition">
                 <i class="fas fa-arrow-left mr-1"></i> Kembali ke Beranda
             </a>
         </div>

@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 min-h-screen">
+<body class="min-h-screen" style="background:#060916;">
     <!-- Header -->
-    <header class="bg-white/10 backdrop-blur-lg border-b border-white/20">
+    <header class="border-b" style="background:rgba(6,9,22,0.95);border-color:rgba(54,242,27,0.15);">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-wifi text-white"></i>
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#36f21b,#14b80f);">
+                    <i class="fas fa-wifi" style="color:#050b14;"></i>
                 </div>
-                <span class="text-xl font-bold text-white">{{ companyName() }}</span>
+                <img src="{{ asset('images/myshezanet-logo.svg') }}" alt="ShezaNet" class="h-8 w-auto">
             </div>
-            <a href="{{ route('customer.login') }}" class="text-cyan-400 hover:text-cyan-300">
+            <a href="{{ route('customer.login') }}" class="text-green-400 hover:text-green-300 transition">
                 <i class="fas fa-user mr-1"></i> Login
             </a>
         </div>
@@ -36,12 +36,12 @@
         <!-- Voucher Packages -->
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
             @forelse($packages ?? [] as $package)
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 overflow-hidden hover:border-cyan-500 transition cursor-pointer"
-                 :class="{ 'ring-2 ring-cyan-500': selectedPackage == {{ $package->id }} }"
+            <div class="rounded-2xl overflow-hidden hover:shadow-xl transition cursor-pointer" style="background:rgba(12,18,32,0.9);border:1px solid rgba(54,242,27,0.15);"
+                 :class="{ 'ring-2 ring-green-500': selectedPackage == {{ $package->id }} }"
                  @click="selectPackage({{ $package->id }}, {{ $package->customer_price }}, '{{ $package->package_name }}')">
-                <div class="bg-gradient-to-r from-cyan-600 to-blue-600 p-4 text-center">
-                    <h3 class="text-lg font-bold text-white">{{ $package->package_name }}</h3>
-                    <p class="text-cyan-100 text-sm">{{ $package->duration }} Jam</p>
+                <div class="p-4 text-center" style="background:linear-gradient(135deg,#36f21b 0%,#14b80f 100%);">
+                    <h3 class="text-lg font-bold" style="color:#050b14;">{{ $package->package_name }}</h3>
+                    <p class="text-sm" style="color:#050b14;opacity:0.75;">{{ $package->duration }} Jam</p>
                 </div>
                 <div class="p-5 text-center">
                     <div class="mb-4">
@@ -55,7 +55,7 @@
                         @endif
                     </ul>
                     <button class="w-full py-2.5 rounded-lg font-semibold transition text-sm"
-                            :class="selectedPackage == {{ $package->id }} ? 'bg-cyan-500 text-white' : 'bg-white/20 text-white hover:bg-white/30'">
+                            :class="selectedPackage == {{ $package->id }} ? 'bg-green-500 text-black font-bold' : 'bg-white/10 text-gray-300 hover:bg-green-500/20 hover:text-green-300'">
                         <span x-show="selectedPackage != {{ $package->id }}">Pilih Paket</span>
                         <span x-show="selectedPackage == {{ $package->id }}"><i class="fas fa-check mr-1"></i> Dipilih</span>
                     </button>
@@ -71,7 +71,7 @@
 
         <!-- Purchase Form -->
         <div x-show="selectedPackage" x-transition class="max-w-lg mx-auto">
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 p-6">
+            <div class="rounded-2xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.15);">
                 <h2 class="text-xl font-bold text-white mb-6 text-center">Form Pembelian</h2>
                 
                 <form action="{{ route('voucher.purchase') }}" method="POST" @submit="processing = true">
@@ -80,7 +80,7 @@
                     
                     <div class="mb-4">
                         <label class="block text-cyan-200 text-sm font-medium mb-2">Paket Dipilih</label>
-                        <div class="bg-white/10 rounded-lg p-3 text-white">
+                        <div class="rounded-lg p-3 text-white" style="background:rgba(54,242,27,0.06);border:1px solid rgba(54,242,27,0.12);">
                             <span x-text="selectedPackageName"></span> - 
                             <span class="font-bold">Rp <span x-text="formatPrice(selectedPrice)"></span></span>
                         </div>
@@ -118,7 +118,7 @@
 
                     <button type="submit" 
                             :disabled="processing"
-                            class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-700 transition disabled:opacity-50">
+                            class="w-full py-3 rounded-lg font-bold transition disabled:opacity-50" style="background:linear-gradient(135deg,#36f21b,#14b80f);color:#050b14;">
                         <span x-show="!processing">
                             <i class="fas fa-shopping-cart mr-2"></i>Beli Sekarang
                         </span>
@@ -132,23 +132,23 @@
 
         <!-- Info Section -->
         <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white/5 rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-bolt text-cyan-400 text-2xl"></i>
+            <div class="rounded-xl p-6 text-center" style="background:rgba(12,18,32,0.7);border:1px solid rgba(54,242,27,0.10);">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(54,242,27,0.12);">
+                    <i class="fas fa-bolt text-green-400 text-2xl"></i>
                 </div>
                 <h3 class="text-white font-semibold mb-2">Aktivasi Instan</h3>
                 <p class="text-cyan-200 text-sm">Voucher langsung aktif setelah pembayaran berhasil</p>
             </div>
-            <div class="bg-white/5 rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div class="rounded-xl p-6 text-center" style="background:rgba(12,18,32,0.7);border:1px solid rgba(54,242,27,0.10);">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(54,242,27,0.12);">
                     <i class="fab fa-whatsapp text-green-400 text-2xl"></i>
                 </div>
                 <h3 class="text-white font-semibold mb-2">Kirim via WhatsApp</h3>
                 <p class="text-cyan-200 text-sm">Kode voucher dikirim langsung ke WhatsApp Anda</p>
             </div>
-            <div class="bg-white/5 rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-shield-alt text-blue-400 text-2xl"></i>
+            <div class="rounded-xl p-6 text-center" style="background:rgba(12,18,32,0.7);border:1px solid rgba(54,242,27,0.10);">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style="background:rgba(54,242,27,0.12);">
+                    <i class="fas fa-shield-alt text-green-400 text-2xl"></i>
                 </div>
                 <h3 class="text-white font-semibold mb-2">Pembayaran Aman</h3>
                 <p class="text-cyan-200 text-sm">Transaksi dijamin aman dengan payment gateway terpercaya</p>
@@ -157,7 +157,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white/5 border-t border-white/10 mt-12">
+    <footer class="mt-12" style="background:rgba(6,9,22,0.95);border-top:1px solid rgba(54,242,27,0.12);">
         <div class="max-w-6xl mx-auto px-4 py-6 text-center text-cyan-300 text-sm">
             <p>&copy; {{ date('Y') }} {{ companyName() }}. All rights reserved.</p>
         </div>

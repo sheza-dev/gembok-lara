@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-<div class="min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
+<div class="min-h-screen" style="background:#060916;" x-data="{ sidebarOpen: false }">
     @include('admin.partials.sidebar')
 
     <div class="lg:pl-64">
@@ -17,68 +17,68 @@
         <div class="p-6">
             <!-- Welcome Section -->
             <div class="mb-6">
-                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-                <p class="text-gray-600 mt-1">Welcome back, {{ auth()->user()->name }}!</p>
+                <h1 class="text-3xl font-bold text-white">Dashboard</h1>
+                <p class="text-gray-400 mt-1">Welcome back, {{ auth()->user()->name }}!</p>
             </div>
 
             <!-- Stats Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 <!-- Total Customers -->
-                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-500 hover:shadow-lg transition">
+                <div class="rounded-xl p-6 hover:shadow-lg transition" style="background:#0c1220;border-left:4px solid #36f21b;">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-600 mb-1">Total Customers</p>
-                            <p class="text-3xl font-bold text-gray-900">{{ $stats['total_customers'] }}</p>
+                            <p class="text-sm text-gray-400 mb-1">Total Customers</p>
+                            <p class="text-3xl font-bold text-white">{{ $stats['total_customers'] }}</p>
                             <p class="text-xs text-green-600 mt-1">
                                 <i class="fas fa-check-circle"></i> {{ $stats['active_customers'] }} active
                             </p>
                         </div>
-                        <div class="h-14 w-14 bg-blue-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-users text-blue-600 text-2xl"></i>
+                        <div class="h-14 w-14 rounded-full" style="background:rgba(54,242,27,0.12);" flex items-center justify-center">
+                            <i class="fas fa-users text-green-400 text-2xl"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Revenue -->
-                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500 hover:shadow-lg transition">
+                <div class="rounded-xl p-6 hover:shadow-lg transition" style="background:#0c1220;border-left:4px solid #36f21b;">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-600 mb-1">Total Revenue</p>
-                            <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p>
-                            <p class="text-xs text-gray-500 mt-1">Paid invoices</p>
+                            <p class="text-sm text-gray-400 mb-1">Total Revenue</p>
+                            <p class="text-2xl font-bold text-white">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p>
+                            <p class="text-xs text-gray-400 mt-1">Paid invoices</p>
                         </div>
-                        <div class="h-14 w-14 bg-green-100 rounded-full flex items-center justify-center">
+                        <div class="h-14 w-14 rounded-full" style="background:rgba(54,242,27,0.12);" flex items-center justify-center">
                             <i class="fas fa-money-bill-wave text-green-600 text-2xl"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pending Revenue -->
-                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-yellow-500 hover:shadow-lg transition">
+                <div class="rounded-xl p-6 hover:shadow-lg transition" style="background:#0c1220;border-left:4px solid #eab308;">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-600 mb-1">Pending Revenue</p>
-                            <p class="text-2xl font-bold text-gray-900">Rp {{ number_format($stats['pending_revenue'], 0, ',', '.') }}</p>
+                            <p class="text-sm text-gray-400 mb-1">Pending Revenue</p>
+                            <p class="text-2xl font-bold text-white">Rp {{ number_format($stats['pending_revenue'], 0, ',', '.') }}</p>
                             <p class="text-xs text-yellow-600 mt-1">
                                 <i class="fas fa-clock"></i> {{ $stats['unpaid_invoices'] }} unpaid
                             </p>
                         </div>
-                        <div class="h-14 w-14 bg-yellow-100 rounded-full flex items-center justify-center">
+                        <div class="h-14 w-14 rounded-full" style="background:rgba(234,179,8,0.12);" flex items-center justify-center">
                             <i class="fas fa-hourglass-half text-yellow-600 text-2xl"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Packages -->
-                <div class="bg-white rounded-xl shadow-md p-6 border-l-4 border-cyan-500 hover:shadow-lg transition">
+                <div class="rounded-xl p-6 hover:shadow-lg transition" style="background:#0c1220;border-left:4px solid #36f21b;">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm text-gray-600 mb-1">Total Packages</p>
-                            <p class="text-3xl font-bold text-gray-900">{{ $stats['total_packages'] }}</p>
-                            <p class="text-xs text-gray-500 mt-1">Active packages</p>
+                            <p class="text-sm text-gray-400 mb-1">Total Packages</p>
+                            <p class="text-3xl font-bold text-white">{{ $stats['total_packages'] }}</p>
+                            <p class="text-xs text-gray-400 mt-1">Active packages</p>
                         </div>
-                        <div class="h-14 w-14 bg-cyan-100 rounded-full flex items-center justify-center">
-                            <i class="fas fa-box text-cyan-600 text-2xl"></i>
+                        <div class="h-14 w-14 rounded-full" style="background:rgba(54,242,27,0.12);" flex items-center justify-center">
+                            <i class="fas fa-box text-green-400 text-2xl"></i>
                         </div>
                     </div>
                 </div>
@@ -87,9 +87,9 @@
             <!-- Charts Section -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <!-- Revenue Chart -->
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-chart-line mr-2 text-cyan-600"></i>
+                <div class="rounded-xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.10);">
+                    <h3 class="text-lg font-bold text-white mb-4">
+                        <i class="fas fa-chart-line mr-2 text-green-400"></i>
                         Revenue Trend (Last 6 Months)
                     </h3>
                     <div style="height: 300px;">
@@ -98,9 +98,9 @@
                 </div>
 
                 <!-- Customer Growth Chart -->
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-user-plus mr-2 text-blue-600"></i>
+                <div class="rounded-xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.10);">
+                    <h3 class="text-lg font-bold text-white mb-4">
+                        <i class="fas fa-user-plus mr-2 text-green-400"></i>
                         New Customers (Last 6 Months)
                     </h3>
                     <div style="height: 300px;">
@@ -112,9 +112,9 @@
             <!-- Package Distribution & Invoice Status -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <!-- Package Distribution -->
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-chart-pie mr-2 text-cyan-600"></i>
+                <div class="rounded-xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.10);">
+                    <h3 class="text-lg font-bold text-white mb-4">
+                        <i class="fas fa-chart-pie mr-2 text-green-400"></i>
                         Package Distribution
                     </h3>
                     <div style="height: 300px;" class="flex items-center justify-center">
@@ -123,9 +123,9 @@
                 </div>
 
                 <!-- Invoice Status -->
-                <div class="bg-white rounded-xl shadow-md p-6">
-                    <h3 class="text-lg font-bold text-gray-900 mb-4">
-                        <i class="fas fa-file-invoice mr-2 text-blue-600"></i>
+                <div class="rounded-xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.10);">
+                    <h3 class="text-lg font-bold text-white mb-4">
+                        <i class="fas fa-file-invoice mr-2 text-green-400"></i>
                         Invoice Status
                     </h3>
                     <div style="height: 300px;" class="flex items-center justify-center">
@@ -137,68 +137,68 @@
             <!-- Recent Activity -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <!-- Recent Invoices -->
-                <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="rounded-xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.10);">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-gray-900">
-                            <i class="fas fa-file-invoice mr-2 text-blue-600"></i>
+                        <h3 class="text-lg font-bold text-white">
+                            <i class="fas fa-file-invoice mr-2 text-green-400"></i>
                             Recent Invoices
                         </h3>
-                        <a href="{{ route('admin.invoices.index') }}" class="text-cyan-600 hover:text-cyan-800 text-sm font-medium">
+                        <a href="{{ route('admin.invoices.index') }}" class="text-green-400 hover:text-green-300 text-sm font-medium">
                             View All <i class="fas fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                     <div class="space-y-3">
                         @forelse($recent_invoices as $invoice)
-                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                            <div class="flex items-center justify-between p-3 rounded-lg hover:bg-green-500/5 transition" style="background:rgba(255,255,255,0.03);">
                                 <div class="flex-1">
-                                    <p class="font-medium text-gray-900">{{ $invoice->customer->name }}</p>
-                                    <p class="text-sm text-gray-600">{{ $invoice->invoice_number }}</p>
+                                    <p class="font-medium text-white">{{ $invoice->customer->name }}</p>
+                                    <p class="text-sm text-gray-400">{{ $invoice->invoice_number }}</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="font-bold text-gray-900">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</p>
-                                    <span class="text-xs px-2 py-1 rounded-full {{ $invoice->status === 'paid' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800' }}">
+                                    <p class="font-bold text-white">Rp {{ number_format($invoice->amount, 0, ',', '.') }}</p>
+                                    <span class="text-xs px-2 py-1 rounded-full {{ $invoice->status === 'paid' ? 'bg-green-500/15 text-green-400' : 'bg-yellow-500/15 text-yellow-400' }}">
                                         {{ ucfirst($invoice->status) }}
                                     </span>
                                 </div>
                             </div>
                         @empty
-                            <p class="text-gray-500 text-center py-4">No invoices yet</p>
+                            <p class="text-gray-400 text-center py-4">No invoices yet</p>
                         @endforelse
                     </div>
                 </div>
 
                 <!-- Recent Customers -->
-                <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="rounded-xl p-6" style="background:#0c1220;border:1px solid rgba(54,242,27,0.10);">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-gray-900">
+                        <h3 class="text-lg font-bold text-white">
                             <i class="fas fa-user-plus mr-2 text-green-600"></i>
                             Recent Customers
                         </h3>
-                        <a href="{{ route('admin.customers.index') }}" class="text-cyan-600 hover:text-cyan-800 text-sm font-medium">
+                        <a href="{{ route('admin.customers.index') }}" class="text-green-400 hover:text-green-300 text-sm font-medium">
                             View All <i class="fas fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                     <div class="space-y-3">
                         @forelse($recent_customers as $customer)
-                            <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                            <div class="flex items-center justify-between p-3 rounded-lg hover:bg-green-500/5 transition" style="background:rgba(255,255,255,0.03);">
                                 <div class="flex items-center space-x-3">
-                                    <div class="h-10 w-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold">
+                                    <div class="h-10 w-10 rounded-full flex items-center justify-center text-black font-bold" style="background:linear-gradient(135deg,#36f21b,#14b80f);"">
                                         {{ strtoupper(substr($customer->name, 0, 1)) }}
                                     </div>
                                     <div>
-                                        <p class="font-medium text-gray-900">{{ $customer->name }}</p>
-                                        <p class="text-sm text-gray-600">{{ $customer->phone }}</p>
+                                        <p class="font-medium text-white">{{ $customer->name }}</p>
+                                        <p class="text-sm text-gray-400">{{ $customer->phone }}</p>
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm font-medium text-gray-900">{{ $customer->package->name ?? 'No Package' }}</p>
-                                    <span class="text-xs px-2 py-1 rounded-full {{ $customer->status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800' }}">
+                                    <p class="text-sm font-medium text-white">{{ $customer->package->name ?? 'No Package' }}</p>
+                                    <span class="text-xs px-2 py-1 rounded-full {{ $customer->status === 'active' ? 'bg-green-500/15 text-green-400' : 'bg-white/10 text-gray-300' }}">
                                         {{ ucfirst($customer->status) }}
                                     </span>
                                 </div>
                             </div>
                         @empty
-                            <p class="text-gray-500 text-center py-4">No customers yet</p>
+                            <p class="text-gray-400 text-center py-4">No customers yet</p>
                         @endforelse
                     </div>
                 </div>
