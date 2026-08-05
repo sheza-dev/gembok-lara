@@ -33,7 +33,7 @@
                                 <i class="fas fa-check-circle"></i> {{ $stats['active_customers'] }} active
                             </p>
                         </div>
-                        <div class="h-14 w-14 rounded-full" style="background:rgba(54,242,27,0.12);" flex items-center justify-center">
+                        <div class="h-14 w-14 rounded-full" class="flex items-center justify-center" style="background:rgba(54,242,27,0.12);">
                             <i class="fas fa-users text-green-400 text-2xl"></i>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                             <p class="text-2xl font-bold text-white">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p>
                             <p class="text-xs text-gray-400 mt-1">Paid invoices</p>
                         </div>
-                        <div class="h-14 w-14 rounded-full" style="background:rgba(54,242,27,0.12);" flex items-center justify-center">
+                        <div class="h-14 w-14 rounded-full" class="flex items-center justify-center" style="background:rgba(54,242,27,0.12);">
                             <i class="fas fa-money-bill-wave text-green-600 text-2xl"></i>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                 <i class="fas fa-clock"></i> {{ $stats['unpaid_invoices'] }} unpaid
                             </p>
                         </div>
-                        <div class="h-14 w-14 rounded-full" style="background:rgba(234,179,8,0.12);" flex items-center justify-center">
+                        <div class="h-14 w-14 rounded-full" class="flex items-center justify-center" style="background:rgba(234,179,8,0.12);">
                             <i class="fas fa-hourglass-half text-yellow-600 text-2xl"></i>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <p class="text-3xl font-bold text-white">{{ $stats['total_packages'] }}</p>
                             <p class="text-xs text-gray-400 mt-1">Active packages</p>
                         </div>
-                        <div class="h-14 w-14 rounded-full" style="background:rgba(54,242,27,0.12);" flex items-center justify-center">
+                        <div class="h-14 w-14 rounded-full" class="flex items-center justify-center" style="background:rgba(54,242,27,0.12);">
                             <i class="fas fa-box text-green-400 text-2xl"></i>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                         @forelse($recent_customers as $customer)
                             <div class="flex items-center justify-between p-3 rounded-lg hover:bg-green-500/5 transition" style="background:rgba(255,255,255,0.03);">
                                 <div class="flex items-center space-x-3">
-                                    <div class="h-10 w-10 rounded-full flex items-center justify-center text-black font-bold" style="background:linear-gradient(135deg,#36f21b,#14b80f);"">
+                                    <div class="h-10 w-10 rounded-full flex items-center justify-center text-black font-bold" style="background:linear-gradient(135deg,#36f21b,#14b80f);">
                                         {{ strtoupper(substr($customer->name, 0, 1)) }}
                                     </div>
                                     <div>

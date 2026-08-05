@@ -3,6 +3,7 @@
 @section('title', 'Admin Login')
 
 @push('styles')
+@include('partials.shezanet-theme')
 <style>
     .sn-bg {
         background: radial-gradient(ellipse at 60% 40%, #0a1a2e 0%, #050b14 60%, #060916 100%);

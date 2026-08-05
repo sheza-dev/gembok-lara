@@ -7,17 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <style>
-        body { background: #060916; }
-        .sn-card { background: rgba(12,18,32,0.95); border: 1px solid rgba(54,242,27,0.18); box-shadow: 0 0 40px rgba(54,242,27,0.07), 0 20px 40px rgba(0,0,0,0.5); }
-        .sn-input { background: rgba(255,255,255,0.04); border: 1px solid rgba(54,242,27,0.20); color: #fff; }
-        .sn-input::placeholder { color: #4a5568; }
-        .sn-input:focus { outline: none; border-color: #36f21b; box-shadow: 0 0 0 3px rgba(54,242,27,0.12); }
-        .sn-btn { background: linear-gradient(135deg, #36f21b 0%, #14b80f 100%); color: #050b14; font-weight: 700; }
-        .sn-btn:hover { filter: brightness(1.1); }
-    </style>
+    @include('partials.shezanet-theme')
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4" style="background:#060916;">
     <div class="w-full max-w-md">
         <!-- Logo & Title -->
         <div class="text-center mb-8">
